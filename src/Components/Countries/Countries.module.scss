@@ -1,0 +1,28 @@
+.contrie {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.flag {
+  width: 100%;
+}
+.wrapDescription {
+  height: 200px;
+  padding: 20px 20px;
+  // margin: 0 auto;
+  // width: 70%;
+}
+
+.countryName {
+  font-size: 16px;
+  line-height: 4em;
+}
+.description {
+  font-weight: 600;
+  line-height: 2em;
+  span {
+    font-weight: 100;
+  }
+}
