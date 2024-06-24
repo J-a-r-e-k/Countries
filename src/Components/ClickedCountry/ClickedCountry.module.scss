@@ -1,0 +1,39 @@
+.contry {
+  height: 85vh;
+  padding: 30px;
+}
+
+.btnContry {
+  display: flex;
+  width: 90px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 0.5px #999;
+  cursor: pointer;
+  svg {
+    width: 20px;
+    margin: 0 5px;
+  }
+}
+
+.wrapDescription {
+  div {
+    margin-top: 15px;
+  }
+}
+
+.countryName {
+  font-size: 16px;
+  line-height: 3em;
+  text-align: left;
+}
+.description {
+  font-weight: 600;
+  line-height: 2em;
+  text-align: left;
+  span {
+    font-weight: 100;
+  }
+}

@@ -1,11 +1,18 @@
 # Front-end Style Guide
 
+//Zadania//
+Każdy z kafelków ma mieć własne url
+React ruter - ustawić by po kliknięciu generował się nowy element .
+Wyszukiwanie po nazwie - pobierz wszystkie dane i wyszukaj nazwy danego kraju wpisując literki i wyświetl go.
+Zmiana cień noc
+
 ## Layout
 
 The designs were created to the following widths:
 
 - mini 320px
 - Mobile: 375px
+- tablet: 740px
 - Desktop: 1440px
 
 ### Neutral

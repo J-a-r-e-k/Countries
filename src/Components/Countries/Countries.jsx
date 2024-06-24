@@ -1,15 +1,32 @@
+/* eslint-disable react/prop-types */
 import Style from './Countries.module.scss';
+import SearchEngine from '../SearchEngine';
 
-const Countries = (globalData) => {
-  const Countries = globalData.globalData.map((country, index) => {
+const Countries = ({
+  globalData,
+  stanRegionBtn,
+  changeRegion,
+  nameRegionBtn,
+  getCountriesData,
+  changeNameRegionBtn,
+  countryOn,
+}) => {
+  const Countries = globalData.map((country, index) => {
     return (
-      <div className={Style.contrie} key={index}>
+      <button
+        className={Style.contrie}
+        key={index}
+        onClick={function () {
+          countryOn(country.name.common);
+        }}
+      >
         <img
           className={Style.flag}
           src={country.flags.svg}
           alt=""
           width={100}
         />
+
         <div className={Style.wrapDescription}>
           <h2 className={Style.countryName}>{country.name.common}</h2>
           <p className={Style.description}>
@@ -22,11 +39,22 @@ const Countries = (globalData) => {
             Capital: <span>{country.capital}</span>
           </p>
         </div>
-      </div>
+      </button>
     );
   });
 
-  return <> {Countries}</>;
+  return (
+    <>
+      <SearchEngine
+        stanRegionBtn={stanRegionBtn}
+        changeRegion={changeRegion}
+        nameRegionBtn={nameRegionBtn}
+        getCountriesData={getCountriesData}
+        changeNameRegionBtn={changeNameRegionBtn}
+      />
+      {Countries}
+    </>
+  );
 };
 
 export default Countries;
