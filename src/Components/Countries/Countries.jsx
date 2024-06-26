@@ -1,5 +1,5 @@
 import Style from './Countries.module.scss';
-import SearchEngine from '../SearchEngine';
+import SearchEngine from '../SearchEngine/SearchEngine';
 import { useNavigate } from 'react-router-dom';
 
 const Countries = ({
@@ -46,7 +46,7 @@ const Countries = ({
   });
 
   return (
-    <>
+    <section className={Style.countries}>
       <SearchEngine
         stanRegionBtn={stanRegionBtn}
         changeRegion={changeRegion}
@@ -55,7 +55,7 @@ const Countries = ({
         changeNameRegionBtn={changeNameRegionBtn}
       />
       {Countries}
-    </>
+    </section>
   );
 };
 

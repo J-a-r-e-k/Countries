@@ -44,34 +44,21 @@ function HomePage() {
     setSelectionCountry(event);
   };
 
-  const Click = () => {
-    if (selectionCountry != '') {
-      return <ClickedCountry countryOn={countryOn} />;
-    } else
-      return (
-        countries != 0 && (
-          <Countries
-            changeRegion={changeRegion}
-            stanRegionBtn={stanRegionBtn}
-            nameRegionBtn={nameRegionBtn}
-            getCountriesData={getCountriesData}
-            changeNameRegionBtn={changeNameRegionBtn}
-            globalData={countries}
-            countryOn={countryOn}
-          />
-        )
-      );
-  };
-
   useEffect(() => {
     getCountriesData();
   }, []);
 
   return (
     <>
-      <section className="countries">
-        <Click />
-      </section>
+      <Countries
+        changeRegion={changeRegion}
+        stanRegionBtn={stanRegionBtn}
+        nameRegionBtn={nameRegionBtn}
+        getCountriesData={getCountriesData}
+        changeNameRegionBtn={changeNameRegionBtn}
+        globalData={countries}
+        countryOn={countryOn}
+      />
     </>
   );
 }

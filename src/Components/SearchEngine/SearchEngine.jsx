@@ -1,3 +1,5 @@
+import Style from './SearchEngine.module.scss';
+
 const SearchEngine = ({
   stanRegionBtn,
   changeRegion,
@@ -19,15 +21,29 @@ const SearchEngine = ({
   };
 
   return (
-    <section className="searchEngine">
+    <section className={Style.searchEngine}>
+      {/* <svg
+        className={Style.magnifier}
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="grey"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="25" y1="25" x2="16.65" y2="16.65"></line>
+      </svg> */}
       <input
-        className="imputSearch"
+        className={Style.imputSearch}
         type="text"
         placeholder="Search for a country"
       ></input>
 
       <button
-        className="btnListRegion"
+        className={Style.btnListRegion}
         onClick={() => {
           changeRegion(!stanRegionBtn);
         }}
@@ -35,7 +51,7 @@ const SearchEngine = ({
         {`${nameRegionBtn}`}
         <ArrowRegionSVG />
         {stanRegionBtn && (
-          <div className="regionList">
+          <div className={Style.regionList}>
             <ul>
               <li>
                 <button
