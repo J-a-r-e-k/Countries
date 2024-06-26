@@ -6,9 +6,9 @@ const CountryPage = () => {
 
   const countryName = params.country;
 
-  console.log(countryName);
+  // console.log(countryName);
 
-  return <ClickedCountry />;
+  return <ClickedCountry countryName={countryName} />;
 };
 
 export default CountryPage;

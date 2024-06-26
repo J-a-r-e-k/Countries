@@ -1,12 +1,12 @@
 .contry {
-  height: 85vh;
+  min-height: 85vh;
   padding: 30px;
 }
-
 .btnContry {
   display: flex;
   width: 90px;
   height: 30px;
+  margin: 20px 0;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
@@ -18,15 +18,17 @@
   }
 }
 
-.wrapDescription {
-  div {
-    margin-top: 15px;
-  }
+.flag {
+  width: 100%;
+  margin: 10px 0;
+}
+.wrapDiv {
+  margin-top: 15px;
 }
 
 .countryName {
   font-size: 16px;
-  line-height: 3em;
+  line-height: 2em;
   text-align: left;
 }
 .description {
@@ -36,4 +38,20 @@
   span {
     font-weight: 100;
   }
+}
+
+.wrapCountries {
+  display: flex;
+  justify-content: space-between;
+}
+.btnBorder {
+  display: flex;
+  padding: 5px;
+  flex-grow: 1;
+  max-width: 120px;
+  margin: 0 5px;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 0.5px #999;
+  cursor: pointer;
 }
