@@ -19,7 +19,6 @@ const Countries = ({
         className={Style.contrie}
         key={index}
         onClick={function () {
-          // countryOn(country.name.common);
           navigate('/' + country.name.common);
         }}
       >

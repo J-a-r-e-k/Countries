@@ -69,7 +69,6 @@ function HomePage() {
 
   return (
     <>
-      <Header />
       <section className="countries">
         <Click />
       </section>
