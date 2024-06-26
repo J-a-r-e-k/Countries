@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import Style from './Countries.module.scss';
 import SearchEngine from '../SearchEngine';
+import { useNavigate } from 'react-router-dom';
 
 const Countries = ({
   globalData,
@@ -11,13 +11,16 @@ const Countries = ({
   changeNameRegionBtn,
   countryOn,
 }) => {
+  const navigate = useNavigate();
+
   const Countries = globalData.map((country, index) => {
     return (
       <button
         className={Style.contrie}
         key={index}
         onClick={function () {
-          countryOn(country.name.common);
+          // countryOn(country.name.common);
+          navigate('/' + country.name.common);
         }}
       >
         <img

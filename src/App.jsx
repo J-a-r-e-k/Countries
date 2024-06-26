@@ -2,77 +2,52 @@ import { useState, useEffect } from 'react';
 import './App.scss';
 import Countries from './Components/Countries/Countries';
 import Header from './Components/Header/Header';
+import HomePage from './pages/HomePage';
+import CountryPage from './pages/CountryPage';
 import ClickedCountry from './Components/ClickedCountry/ClickedCountry';
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
 
 const API_URL = 'https://restcountries.com/v3.1';
 
-function App() {
-  const [countries, setCountries] = useState([]);
-  const [stanRegionBtn, setStanRegionBtn] = useState(false);
-  const [nameRegionBtn, setNameRegionBtn] = useState('Filter by Region');
-  const [selectionCountry, setSelectionCountry] = useState('');
-
-  const changeRegion = (event) => {
-    setStanRegionBtn(event);
-  };
-
-  const changeNameRegionBtn = (event) => {
-    setNameRegionBtn(event);
-  };
-  //POBIERANIE DANYCH
-  const getCountriesData = async (region) => {
-    const source = region ? `region/${region}` : 'all';
-
-    try {
-      const response = await fetch(
-        `${API_URL}/${source}?fields=name,capital,population,region,flags`
-      );
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      // setCountries(data.slice(0, 8));
-      setCountries(data);
-    } catch (error) {
-      console.error('Wystąpił błąd podczas pobierania danych:', error);
-    }
-  };
-
-  const countryOn = (event) => {
-    setSelectionCountry(event);
-  };
-
-  const Click = () => {
-    if (selectionCountry != '') {
-      return <ClickedCountry countryOn={countryOn} />;
-    } else
-      return (
-        countries != 0 && (
-          <Countries
-            changeRegion={changeRegion}
-            stanRegionBtn={stanRegionBtn}
-            nameRegionBtn={nameRegionBtn}
-            getCountriesData={getCountriesData}
-            changeNameRegionBtn={changeNameRegionBtn}
-            globalData={countries}
-            countryOn={countryOn}
-          />
-        )
-      );
-  };
-
-  useEffect(() => {
-    getCountriesData();
-  }, []);
-
+const Layout = () => {
   return (
-    <>
-      <Header />
-      <section className="countries">
-        <Click />
-      </section>
-    </>
+    <div>
+      {/* A "layout route" is a good place to put markup you want to
+      share across all the pages on your site, like navigation. */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/poland">Poland</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <hr />
+
+      {/* An <Outlet> renders whatever child route is currently active,
+      so you can think about this <Outlet> as a placeholder for
+      the child routes we defined above. */}
+      <Outlet />
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path=":country" element={<CountryPage />} />
+
+        {/* Using path="*"" means "match anything", so this route
+                acts like a catch-all for URLs that we don't have explicit
+                routes for. */}
+        <Route path="*" element={<>No page</>} />
+      </Route>
+    </Routes>
   );
 }
 
