@@ -1,12 +1,26 @@
 import Style from './SearchEngine.module.scss';
-
+import { useState } from 'react';
 const SearchEngine = ({
   stanRegionBtn,
   changeRegion,
   nameRegionBtn,
   getCountriesData,
   changeNameRegionBtn,
+  setSearch,
+  globalData,
 }) => {
+  const [searchValue, setSearchValue] = useState('');
+  // const [results, setResults] = useState([]);
+
+  const search = (e) => {
+    setSearchValue(e.target.value);
+    result = globalData.filter((element) => {
+      console.log(element.name.common);
+    });
+
+    console.log(result);
+  };
+
   const ArrowRegionSVG = () => {
     return (
       <svg
@@ -22,24 +36,14 @@ const SearchEngine = ({
 
   return (
     <section className={Style.searchEngine}>
-      {/* <svg
-        className={Style.magnifier}
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="grey"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="25" y1="25" x2="16.65" y2="16.65"></line>
-      </svg> */}
       <input
         className={Style.imputSearch}
         type="text"
         placeholder="Search for a country"
+        value={searchValue}
+        onChange={(e) => {
+          search(e);
+        }}
       ></input>
 
       <button

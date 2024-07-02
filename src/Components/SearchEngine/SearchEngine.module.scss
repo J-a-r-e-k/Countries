@@ -26,6 +26,11 @@
     width: 40%;
   }
 }
+.imputSearch::placeholder {
+  @media (prefers-color-scheme: dark) {
+    color: #ddd;
+  }
+}
 .btnListRegion {
   padding: 5px;
   width: fit-content;
@@ -45,4 +50,14 @@
   background-color: #fff;
   box-shadow: 0px 0px 5px 1px grey;
   border-radius: 5px;
+  @media (prefers-color-scheme: dark) {
+    background-color: #222;
+  }
+}
+
+svg {
+  fill: #000;
+  @media (prefers-color-scheme: dark) {
+    fill: #fff;
+  }
 }

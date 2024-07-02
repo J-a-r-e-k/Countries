@@ -8,6 +8,10 @@
   font-family: Nunito Sans, Arial, Helvetica, sans-serif;
   font-size: 14px;
 
+  // color-scheme: light dark;
+  // color: rgba(255, 255, 255, 0.87);
+  // background-color: #242424;
+
   button {
     height: fit-content;
   }
@@ -16,4 +20,20 @@
 #root {
   margin: 0 auto;
   max-width: 1440px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  button {
+    background-color: #242424;
+  }
+  h1 {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  header {
+    background-color: #242424;
+  }
+  .countries {
+    background-color: #242424;
+  }
 }

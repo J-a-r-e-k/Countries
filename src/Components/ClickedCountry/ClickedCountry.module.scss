@@ -1,12 +1,28 @@
 .contry {
-  min-height: 85vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80vh;
   padding: 0px 30px;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 740px) {
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: #242424;
+    color: #ffffff;
+    fill: white;
+  }
 }
 .btnContry {
+  align-self: flex-start;
   display: flex;
   width: 90px;
   height: 30px;
-  margin: 20px 0;
+  margin: 20px 0px;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
@@ -16,43 +32,108 @@
     width: 20px;
     margin: 0 5px;
   }
+  @media (min-width: 740px) {
+    position: absolute;
+    top: 0;
+    left: 30px;
+  }
 }
-
+.wrapFlag {
+  width: 45%;
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+}
 .flag {
   width: 100%;
-  margin: 10px 0;
   box-shadow: 0px 0px 5px 0.5px #aaa;
 }
-.wrapDiv {
-  margin-top: 15px;
-}
 
+.wrapDescription {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 740px) {
+    width: 100%;
+  }
+}
 .countryName {
+  width: 60%;
   font-size: 16px;
   line-height: 2em;
-  text-align: left;
+}
+.wrapContent {
+  width: 50%;
+  margin-top: 15px;
+  @media (max-width: 740px) {
+    width: 100%;
+  }
 }
 .description {
+  font-size: 12px;
   font-weight: 600;
   line-height: 2em;
   text-align: left;
   span {
     font-weight: 100;
+    font-size: 12px;
   }
 }
 
-.wrapCountries {
-  display: flex;
-  justify-content: space-between;
+.wrapBorderBtn {
+  margin-top: 15px;
+  // display: flex;
+  // width: 100%;
 }
+
 .btnBorder {
-  display: flex;
-  padding: 5px;
-  flex-grow: 1;
-  max-width: 120px;
   margin: 0 5px;
-  justify-content: center;
+  padding: 5px;
+  max-width: 120px;
   border-radius: 3px;
   box-shadow: 0px 0px 5px 0.5px #999;
   cursor: pointer;
+  font-size: 12px;
+  font-weight: 100;
 }
+
+// .wrapDescription {
+//   @media (min-width: 740px) {
+//     padding: 30px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     height: fit-content;
+//   }
+// }
+// .wrapDiv {
+//   margin-top: 15px;
+//   @media (min-width: 740px) {
+//     width: 50%;
+//   }
+// }
+
+// .countryName {
+//   font-size: 16px;
+//   line-height: 2em;
+//   text-align: left;
+//   @media (min-width: 740px) {
+//     flex-basis: 100%;
+//   }
+// }
+
+// .wrapCountries {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .btnBorder {
+//   display: flex;
+//   padding: 5px;
+//   flex-grow: 1;
+//   max-width: 120px;
+//   margin: 0 5px;
+//   justify-content: center;
+//   border-radius: 3px;
+//   box-shadow: 0px 0px 5px 0.5px #999;
+//   cursor: pointer;
+// }

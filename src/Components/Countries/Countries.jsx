@@ -9,7 +9,7 @@ const Countries = ({
   nameRegionBtn,
   getCountriesData,
   changeNameRegionBtn,
-  countryOn,
+  setSearch,
 }) => {
   const navigate = useNavigate();
 
@@ -53,6 +53,7 @@ const Countries = ({
         nameRegionBtn={nameRegionBtn}
         getCountriesData={getCountriesData}
         changeNameRegionBtn={changeNameRegionBtn}
+        globalData={globalData}
       />
       {Countries}
     </section>

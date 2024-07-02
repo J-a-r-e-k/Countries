@@ -8,9 +8,11 @@ const API_URL = 'https://restcountries.com/v3.1';
 
 function HomePage() {
   const [countries, setCountries] = useState([]);
+  const [search, setSearch] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
   const [stanRegionBtn, setStanRegionBtn] = useState(false);
   const [nameRegionBtn, setNameRegionBtn] = useState('Filter by Region');
-  const [selectionCountry, setSelectionCountry] = useState('');
+
   // state do wyszukiwalki
 
   const changeRegion = (event) => {
@@ -40,10 +42,6 @@ function HomePage() {
     }
   };
 
-  const countryOn = (event) => {
-    setSelectionCountry(event);
-  };
-
   useEffect(() => {
     getCountriesData();
   }, []);
@@ -57,7 +55,7 @@ function HomePage() {
         getCountriesData={getCountriesData}
         changeNameRegionBtn={changeNameRegionBtn}
         globalData={countries}
-        countryOn={countryOn}
+        setSearch={setSearch}
       />
     </>
   );

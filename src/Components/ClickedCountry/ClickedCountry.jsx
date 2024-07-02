@@ -53,15 +53,17 @@ const ClickedCountry = ({ countryName }) => {
           </svg>
           Back
         </button>
-        <img
-          className={Style.flag}
-          src={country.flags.svg}
-          alt={country.flags.alt}
-        />
+        <div className={Style.wrapFlag}>
+          <img
+            className={Style.flag}
+            src={country.flags.svg}
+            alt={country.flags.alt}
+          />
+        </div>
 
         <div className={Style.wrapDescription}>
           <h2 className={Style.countryName}>{country.name.common}</h2>
-          <div className={Style.wrapDiv}>
+          <div className={Style.wrapContent}>
             <p className={Style.description}>
               Native Name: <span>{country.name.official}</span>
             </p>
@@ -78,7 +80,7 @@ const ClickedCountry = ({ countryName }) => {
               Capital: <span>{country.capital}</span>
             </p>
           </div>
-          <div className={Style.wrapDiv}>
+          <div className={Style.wrapContent}>
             <p className={Style.description}>
               Top Level Domain: <span>{country.cca2}</span>
             </p>
@@ -87,7 +89,7 @@ const ClickedCountry = ({ countryName }) => {
             </p>
             <p className={Style.description}>Languages: {language}</p>
           </div>
-          <div className={Style.wrapDiv}>
+          <div className={Style.wrapBorderBtn}>
             <p className={Style.description}>Border Countries:</p>
             <div className={Style.wrapCountries}> {borderBtn}</div>
           </div>

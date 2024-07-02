@@ -37,3 +37,18 @@ The designs were created to the following widths:
 - [Font Awesome](https://fontawesome.com)
 - [IcoMoon](https://icomoon.io)
 - [Ionicons](https://ionicons.com)
+
+Zadania:
+{
+wygląd elementu po kliknięciu na kraj
+
+zmiana tła ciemhy jasny
+
+dodanie wyszukowarki.
+zmienic format zapisu populacji na bardziej czytely
+doac przecinki pomiedy nazwami jezyków
+top level zmienic na format -> .pl
+
+ustawic pełną nazwe krajów sąsiadujących
+ustawić funkcje na przyciski kraju sąsiadujacych
+}
