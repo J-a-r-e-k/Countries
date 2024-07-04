@@ -10,10 +10,15 @@ const Countries = ({
   getCountriesData,
   changeNameRegionBtn,
   setSearch,
+  search,
 }) => {
+
+  // zmienic na sprawdzenie czy impust jest pusta jeśli nie wyświetl search , jeśli search jest pusta tablica warunek wyświetl Countris == brak wyszukiwań 
+  const viueCuntry = search.length !== 0 ? search : globalData;
+
   const navigate = useNavigate();
 
-  const Countries = globalData.map((country, index) => {
+  const Countries = viueCuntry.map((country, index) => {
     return (
       <button
         className={Style.contrie}
@@ -54,7 +59,9 @@ const Countries = ({
         getCountriesData={getCountriesData}
         changeNameRegionBtn={changeNameRegionBtn}
         globalData={globalData}
+        setSearch={setSearch}
       />
+
       {Countries}
     </section>
   );

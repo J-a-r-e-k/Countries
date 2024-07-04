@@ -1,5 +1,7 @@
 import Style from './SearchEngine.module.scss';
+import Countries from '../Countries/Countries';
 import { useState } from 'react';
+import HomePage from '../../pages/HomePage';
 const SearchEngine = ({
   stanRegionBtn,
   changeRegion,
@@ -10,15 +12,17 @@ const SearchEngine = ({
   globalData,
 }) => {
   const [searchValue, setSearchValue] = useState('');
-  // const [results, setResults] = useState([]);
 
-  const search = (e) => {
-    setSearchValue(e.target.value);
-    result = globalData.filter((element) => {
-      console.log(element.name.common);
+  const search = () => {
+    const result = globalData.filter((element) => {
+      // zwraca tablice z wszystkich Name
+      return Object.values(element.name)
+        .join('') // zamienia na jednolity tekst
+        .toLowerCase()
+        .includes(searchValue.toLowerCase()); // sprawdca czy wpisany tekst jest jest w elemęcie tablicy
     });
 
-    console.log(result);
+    setSearch(result);
   };
 
   const ArrowRegionSVG = () => {
@@ -42,7 +46,8 @@ const SearchEngine = ({
         placeholder="Search for a country"
         value={searchValue}
         onChange={(e) => {
-          search(e);
+          setSearchValue(e.target.value);
+          search();
         }}
       ></input>
 

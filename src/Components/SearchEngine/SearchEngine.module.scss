@@ -10,6 +10,10 @@
     height: 150px;
   }
 }
+button {
+  width: 100%;
+  text-align: left;
+}
 .magnifier {
   position: absolute;
 }
@@ -39,6 +43,7 @@
   border-radius: 5px;
   box-shadow: 0px 0px 5px 1px grey;
   position: relative;
+  text-align: center;
 }
 .regionList {
   position: absolute;
