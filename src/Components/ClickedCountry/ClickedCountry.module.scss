@@ -11,11 +11,6 @@
     justify-content: center;
     height: fit-content;
   }
-  @media (prefers-color-scheme: dark) {
-    background-color: #242424;
-    color: #ffffff;
-    fill: white;
-  }
 }
 .btnContry {
   align-self: flex-start;
@@ -82,8 +77,6 @@
 
 .wrapBorderBtn {
   margin-top: 15px;
-  // display: flex;
-  // width: 100%;
 }
 
 .btnBorder {
@@ -96,44 +89,3 @@
   font-size: 12px;
   font-weight: 100;
 }
-
-// .wrapDescription {
-//   @media (min-width: 740px) {
-//     padding: 30px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     height: fit-content;
-//   }
-// }
-// .wrapDiv {
-//   margin-top: 15px;
-//   @media (min-width: 740px) {
-//     width: 50%;
-//   }
-// }
-
-// .countryName {
-//   font-size: 16px;
-//   line-height: 2em;
-//   text-align: left;
-//   @media (min-width: 740px) {
-//     flex-basis: 100%;
-//   }
-// }
-
-// .wrapCountries {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .btnBorder {
-//   display: flex;
-//   padding: 5px;
-//   flex-grow: 1;
-//   max-width: 120px;
-//   margin: 0 5px;
-//   justify-content: center;
-//   border-radius: 3px;
-//   box-shadow: 0px 0px 5px 0.5px #999;
-//   cursor: pointer;
-// }

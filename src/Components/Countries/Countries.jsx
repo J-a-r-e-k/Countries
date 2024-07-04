@@ -9,12 +9,12 @@ const Countries = ({
   nameRegionBtn,
   getCountriesData,
   changeNameRegionBtn,
-  setSearch,
+  arraySearch,
   search,
+  updateSearchValue,
+  searchValue,
 }) => {
-
-  // zmienic na sprawdzenie czy impust jest pusta jeśli nie wyświetl search , jeśli search jest pusta tablica warunek wyświetl Countris == brak wyszukiwań 
-  const viueCuntry = search.length !== 0 ? search : globalData;
+  const viueCuntry = searchValue === '' ? globalData : search;
 
   const navigate = useNavigate();
 
@@ -59,7 +59,9 @@ const Countries = ({
         getCountriesData={getCountriesData}
         changeNameRegionBtn={changeNameRegionBtn}
         globalData={globalData}
-        setSearch={setSearch}
+        arraySearch={arraySearch}
+        updateSearchValue={updateSearchValue}
+        searchValue={searchValue}
       />
 
       {Countries}

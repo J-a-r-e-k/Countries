@@ -7,6 +7,15 @@ const Switch = ({ text }) => {
 
   const toggleSwitch = () => {
     setIsOn((prevState) => !prevState);
+    // Zmieia kolor  zmiennej w  globalnych stylach :root//
+    document.documentElement.style.setProperty(
+      '--background-color',
+      !isOn ? '#242424' : '#ffffff'
+    );
+    document.documentElement.style.setProperty(
+      '--text-color',
+      !isOn ? '#ffffff' : '#242424'
+    );
   };
 
   return (

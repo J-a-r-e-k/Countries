@@ -9,11 +9,11 @@ const API_URL = 'https://restcountries.com/v3.1';
 function HomePage() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState([]);
-  // const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [stanRegionBtn, setStanRegionBtn] = useState(false);
   const [nameRegionBtn, setNameRegionBtn] = useState('Filter by Region');
 
-  // state do wyszukiwalki
+  // Stan przycisku Kontynentu
   const changeRegion = (event) => {
     setStanRegionBtn(event);
   };
@@ -21,6 +21,14 @@ function HomePage() {
   const changeNameRegionBtn = (event) => {
     setNameRegionBtn(event);
   };
+  const arraySearch = (event) => {
+    setSearch(event);
+  };
+
+  const updateSearchValue = (event) => {
+    setSearchValue(event);
+  };
+
   //POBIERANIE DANYCH
   const getCountriesData = async (region) => {
     setSearch([]);
@@ -55,8 +63,10 @@ function HomePage() {
         getCountriesData={getCountriesData}
         changeNameRegionBtn={changeNameRegionBtn}
         globalData={countries}
-        setSearch={setSearch}
+        arraySearch={arraySearch}
         search={search}
+        updateSearchValue={updateSearchValue}
+        searchValue={searchValue}
       />
     </>
   );

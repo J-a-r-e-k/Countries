@@ -1,29 +1,27 @@
 import Style from './SearchEngine.module.scss';
-import Countries from '../Countries/Countries';
-import { useState } from 'react';
-import HomePage from '../../pages/HomePage';
+import { useEffect } from 'react';
 const SearchEngine = ({
   stanRegionBtn,
   changeRegion,
   nameRegionBtn,
   getCountriesData,
   changeNameRegionBtn,
-  setSearch,
+  arraySearch,
   globalData,
+  updateSearchValue,
+  searchValue,
 }) => {
-  const [searchValue, setSearchValue] = useState('');
-
-  const search = () => {
+  useEffect(() => {
     const result = globalData.filter((element) => {
-      // zwraca tablice z wszystkich Name
+      // zwraca tablice z wszystkich nazw
       return Object.values(element.name)
         .join('') // zamienia na jednolity tekst
         .toLowerCase()
         .includes(searchValue.toLowerCase()); // sprawdca czy wpisany tekst jest jest w elemęcie tablicy
     });
 
-    setSearch(result);
-  };
+    arraySearch(result);
+  }, [searchValue, globalData]);
 
   const ArrowRegionSVG = () => {
     return (
@@ -46,7 +44,7 @@ const SearchEngine = ({
         placeholder="Search for a country"
         value={searchValue}
         onChange={(e) => {
-          setSearchValue(e.target.value);
+          updateSearchValue(e.target.value);
           search();
         }}
       ></input>
