@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ClickedCountry = ({ countryName }) => {
   const [country, setCountrie] = useState([]);
+
   const navigate = useNavigate();
 
   const API_URL = 'https://restcountries.com/v3.1/name';
@@ -12,7 +13,7 @@ const ClickedCountry = ({ countryName }) => {
     try {
       const response =
         await fetch(`${API_URL}/${countryName}?fields=name,nativeName,population,region,subregion,capital,cca2,currencies,languages,borders,flags
-`);
+  `);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -23,17 +24,34 @@ const ClickedCountry = ({ countryName }) => {
       console.error('Wystąpił błąd podczas pobierania danych:', error);
     }
   };
+
   useEffect(() => {
     getCountriesData();
   }, []);
+
+  
+
+  const borderBtn = (country) =>
+    country.borders.map((element) => {
+      return (
+        <button
+          className={Style.btnBorder}
+          onClick={() => {
+            navigate('/');
+            setTimeout(() => {
+              navigate('/' + 'Poland');
+            }, 10);
+          }}
+        >
+          {element}
+        </button>
+      );
+    });
 
   const returnsCountry = country.map((country, index) => {
     const currencie = Object.values(country.currencies)[0].name;
     const language = Object.values(country.languages).map((nameLanguage) => {
       return <span>{nameLanguage} </span>;
-    });
-    const borderBtn = country.borders.map((element) => {
-      return <button className={Style.btnBorder}>{element}</button>;
     });
 
     return (
@@ -91,7 +109,7 @@ const ClickedCountry = ({ countryName }) => {
           </div>
           <div className={Style.wrapBorderBtn}>
             <p className={Style.description}>Border Countries:</p>
-            <div className={Style.wrapCountries}> {borderBtn}</div>
+            <div className={Style.wrapCountries}> {borderBtn(country)}</div>
           </div>
         </div>
       </div>

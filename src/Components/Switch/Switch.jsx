@@ -10,11 +10,15 @@ const Switch = ({ text }) => {
     // Zmieia kolor  zmiennej w  globalnych stylach :root//
     document.documentElement.style.setProperty(
       '--background-color',
-      !isOn ? '#242424' : '#ffffff'
+      !isOn ? '#242424' : '#fafafa'
     );
     document.documentElement.style.setProperty(
       '--text-color',
       !isOn ? '#ffffff' : '#242424'
+    );
+    document.documentElement.style.setProperty(
+      '--header-color',
+      !isOn ? '#333' : '#fff'
     );
   };
 

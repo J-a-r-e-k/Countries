@@ -1,7 +1,10 @@
 .colorMode {
   display: flex;
   cursor: pointer;
+  background-color: var(--header-color);
+
   svg {
     margin: 0 5px;
+    background-color: var(--header-color);
   }
 }
