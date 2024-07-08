@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 
 import Countries from '../Components/Countries/Countries';
-import Header from '../Components/Header/Header';
-import ClickedCountry from '../Components/ClickedCountry/ClickedCountry';
 
 const API_URL = 'https://restcountries.com/v3.1';
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ClickedCountry = ({ countryName }) => {
   const [country, setCountrie] = useState([]);
-
+  const [borderCountries, setBorderCountries] = useState([]);
   const navigate = useNavigate();
 
   const API_URL = 'https://restcountries.com/v3.1/name';
@@ -20,8 +20,32 @@ const ClickedCountry = ({ countryName }) => {
       }
       const data = await response.json();
       setCountrie(data);
+
+      getBorderCountries(data[0].borders); // funkcja z przekazaniem tablicy kodów //
     } catch (error) {
       console.error('Wystąpił błąd podczas pobierania danych:', error);
+    }
+  };
+
+  const getBorderCountries = async (borders) => {
+    if (borders && borders.length > 0) {
+      try {
+        const borderData = await Promise.all(
+          borders.map(async (borderCode) => {
+            const response = await fetch(
+              `https://restcountries.com/v3.1/alpha?codes=${borderCode}`
+            );
+            const data = await response.json();
+            return data[0].name.common;
+          })
+        );
+        setBorderCountries(borderData); // tablica z nazwami Państw//
+      } catch (error) {
+        console.error(
+          'Wystąpił błąd podczas pobierania danych krajów granicznych:',
+          error
+        );
+      }
     }
   };
 
@@ -29,17 +53,15 @@ const ClickedCountry = ({ countryName }) => {
     getCountriesData();
   }, []);
 
-  
-
-  const borderBtn = (country) =>
-    country.borders.map((element) => {
+  const borderBtn = () =>
+    borderCountries.map((element) => {
       return (
         <button
           className={Style.btnBorder}
           onClick={() => {
             navigate('/');
             setTimeout(() => {
-              navigate('/' + 'Poland');
+              navigate('/' + element);
             }, 10);
           }}
         >
@@ -47,6 +69,8 @@ const ClickedCountry = ({ countryName }) => {
         </button>
       );
     });
+
+  // const returnsCountry = country.map((country, index) => {
 
   const returnsCountry = country.map((country, index) => {
     const currencie = Object.values(country.currencies)[0].name;
@@ -109,7 +133,7 @@ const ClickedCountry = ({ countryName }) => {
           </div>
           <div className={Style.wrapBorderBtn}>
             <p className={Style.description}>Border Countries:</p>
-            <div className={Style.wrapCountries}> {borderBtn(country)}</div>
+            <div className={Style.wrapCountries}> {borderBtn()}</div>
           </div>
         </div>
       </div>
