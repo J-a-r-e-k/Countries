@@ -20,6 +20,10 @@ const Switch = ({ text }) => {
       '--header-color',
       !isOn ? '#333' : '#fff'
     );
+    document.documentElement.style.setProperty(
+      '--placeholder-color',
+      !isOn ? '#ddd' : '#808080'
+    );
   };
 
   return (

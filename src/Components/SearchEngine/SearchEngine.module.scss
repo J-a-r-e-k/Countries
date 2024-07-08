@@ -32,11 +32,9 @@ button {
 }
 //zmienic kolor na zmienna i ustawic by zmieniał sie po przełączeniu
 .imputSearch::placeholder {
-  @media (prefers-color-scheme: dark) {
-    color: #ddd;
-  }
+  color: var(--placeholder-color);
 }
-.btnListRegion { 
+.btnListRegion {
   padding: 5px;
   width: fit-content;
   min-width: 120px;
