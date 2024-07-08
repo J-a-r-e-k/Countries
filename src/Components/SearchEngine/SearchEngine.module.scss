@@ -3,7 +3,6 @@
   padding: 20px;
   display: flex;
   margin-bottom: 10px;
-
   justify-content: space-between;
   @media (max-width: 740px) {
     flex-direction: column;
@@ -30,7 +29,6 @@ button {
     width: 40%;
   }
 }
-//zmienic kolor na zmienna i ustawic by zmieniał sie po przełączeniu
 .imputSearch::placeholder {
   color: var(--placeholder-color);
 }
@@ -54,11 +52,4 @@ button {
 
   box-shadow: 0px 0px 5px 1px grey;
   border-radius: 5px;
-}
-
-svg {
-  fill: #000;
-  @media (prefers-color-scheme: dark) {
-    fill: #fff;
-  }
 }

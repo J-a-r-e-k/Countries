@@ -21,7 +21,7 @@ const ClickedCountry = ({ countryName }) => {
       const data = await response.json();
       setCountrie(data[0]);
 
-      getBorderCountries(data[0].borders); // funkcja z przekazaniem tablicy kodów //
+      getBorderCountries(data[0].borders); // funkcja => z przekazaniem tablicy kodów //
     } catch (error) {
       console.error('Wystąpił błąd podczas pobierania danych:', error);
     }

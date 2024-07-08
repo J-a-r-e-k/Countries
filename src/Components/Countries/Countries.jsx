@@ -30,7 +30,7 @@ const Countries = ({
         <img
           className={Style.flag}
           src={country.flags.svg}
-          alt=""
+          alt={country.flags.alt}
           width={100}
         />
 

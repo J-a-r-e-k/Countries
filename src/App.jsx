@@ -1,13 +1,9 @@
-import { useState, useEffect } from 'react';
 import './App.scss';
-import Countries from './Components/Countries/Countries';
 import Header from './Components/Header/Header';
 import HomePage from './pages/HomePage';
 import CountryPage from './pages/CountryPage';
-import ClickedCountry from './Components/ClickedCountry/ClickedCountry';
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
 
-const API_URL = 'https://restcountries.com/v3.1';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (

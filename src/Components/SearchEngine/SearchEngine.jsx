@@ -1,5 +1,7 @@
 import Style from './SearchEngine.module.scss';
+import { ArrowRegionSVG } from '../../utils/Icon';
 import { useEffect } from 'react';
+
 const SearchEngine = ({
   stanRegionBtn,
   changeRegion,
@@ -13,7 +15,7 @@ const SearchEngine = ({
 }) => {
   useEffect(() => {
     const result = globalData.filter((element) => {
-      // zwraca tablice z wszystkich nazw
+      // zwraca tablice z nazwami
       return Object.values(element.name)
         .join('') // zamienia na jednolity tekst
         .toLowerCase()
@@ -22,19 +24,6 @@ const SearchEngine = ({
 
     arraySearch(result);
   }, [searchValue, globalData]);
-
-  const ArrowRegionSVG = () => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-      >
-        <path d="M12 17.414L3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
-      </svg>
-    );
-  };
 
   return (
     <section className={Style.searchEngine}>

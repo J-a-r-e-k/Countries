@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import Countries from '../Components/Countries/Countries';
 
 const API_URL = 'https://restcountries.com/v3.1';
@@ -41,7 +40,6 @@ function HomePage() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      // setCountries(data.slice(0, 8));
       setCountries(data);
     } catch (error) {
       console.error('Wystąpił błąd podczas pobierania danych:', error);
