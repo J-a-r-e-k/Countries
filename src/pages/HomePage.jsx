@@ -28,7 +28,6 @@ function HomePage() {
 
   //POBIERANIE DANYCH
   const getCountriesData = async (region) => {
-    setSearch([]);
     const source = region ? `region/${region}` : 'all';
 
     try {
