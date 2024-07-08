@@ -25,6 +25,11 @@ const SearchEngine = ({
     arraySearch(result);
   }, [searchValue, globalData]);
 
+  // const continents = [
+  // {id: "africa", label: "Africa"},
+  // //
+  // ]
+
   return (
     <section className={Style.searchEngine}>
       <input
@@ -36,7 +41,7 @@ const SearchEngine = ({
           updateSearchValue(e.target.value);
           search();
         }}
-      ></input>
+      />
 
       <button
         className={Style.btnListRegion}

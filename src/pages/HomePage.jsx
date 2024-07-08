@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Countries from '../Components/Countries/Countries';
+import { API_URL } from '../api';
 
-const API_URL = 'https://restcountries.com/v3.1';
 
 function HomePage() {
   const [countries, setCountries] = useState([]);
