@@ -1,4 +1,4 @@
-export function Moon() {
+export function Sun() {
   return (
     <svg
       width="20px"
@@ -15,7 +15,7 @@ export function Moon() {
   );
 }
 
-export function Sun() {
+export function Moon() {
   return (
     <svg
       width="20px"

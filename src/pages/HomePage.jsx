@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Countries from '../Components/Countries/Countries';
-import { API_URL } from '../api';
-
+import { getCountriesByData } from '../api';
 
 function HomePage() {
   const [countries, setCountries] = useState([]);
@@ -29,16 +28,8 @@ function HomePage() {
   //POBIERANIE DANYCH
   const getCountriesData = async (region) => {
     const source = region ? `region/${region}` : 'all';
-
     try {
-      const response = await fetch(
-        `${API_URL}/${source}?fields=name,capital,population,region,flags`
-      );
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
+      const data = await getCountriesByData(source);
       setCountries(data);
     } catch (error) {
       console.error('Wystąpił błąd podczas pobierania danych:', error);

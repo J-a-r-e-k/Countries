@@ -1,36 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import useMediaQuery from '../../utils/useMediaQuery';
 import { Sun, Moon } from '../../utils/Icon';
 import Style from './Switch.module.scss';
 
-const Switch = ({ text }) => {
-  const [isOn, setIsOn] = useState(false);
+const Switch = () => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [isOn, setIsOn] = useState(prefersDarkMode);
+
+  useEffect(() => {
+    setIsOn(prefersDarkMode);
+    updateColors(prefersDarkMode);
+  }, [prefersDarkMode]);
+
+  const updateColors = (isDark) => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   const toggleSwitch = () => {
-    setIsOn((prevState) => !prevState);
-    // Zmieia kolor  zmiennej w  globalnych stylach :root//
-    document.documentElement.style.setProperty(
-      '--background-color',
-      !isOn ? '#242424' : '#fafafa'
-    );
-    document.documentElement.style.setProperty(
-      '--text-color',
-      !isOn ? '#ffffff' : '#242424'
-    );
-    document.documentElement.style.setProperty(
-      '--header-color',
-      !isOn ? '#333' : '#fff'
-    );
-    document.documentElement.style.setProperty(
-      '--placeholder-color',
-      !isOn ? '#ddd' : '#808080'
-    );
+    setIsOn((prevState) => {
+      const newState = !prevState;
+      updateColors(newState);
+      return newState;
+    });
   };
 
   return (
     <div className="switch">
       <button className={`${Style.colorMode}`} onClick={toggleSwitch}>
-        {isOn ? <Moon /> : <Sun />}
-        {text}
+        {isOn ? <Sun /> : <Moon />}
+        {isOn ? 'Bright Mode' : 'Dark Mode'}
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 import Style from './ClickedCountry.module.scss';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCountryByName } from '../../api';
+import { getCountryByName, getCountryByBorder } from '../../api';
 
 const ClickedCountry = ({ countryName }) => {
   const [country, setCountry] = useState();
@@ -23,11 +23,7 @@ const ClickedCountry = ({ countryName }) => {
       try {
         const borderData = await Promise.all(
           borders.map(async (borderCode) => {
-            const response = await fetch(
-              `https://restcountries.com/v3.1/alpha?codes=${borderCode}`
-            );
-            const data = await response.json();
-            return data[0].name.common;
+            return await getCountryByBorder(borderCode);
           })
         );
         setBorderCountries(borderData); // tablica z nazwami Państw//
@@ -127,3 +123,30 @@ const ClickedCountry = ({ countryName }) => {
 };
 
 export default ClickedCountry;
+
+// const getBorderCountries = async (borders) => {
+//   if (borders && borders.length > 0) {
+//     try {
+//       // const borderData = await getCountryByBorder(borders);
+//       const borderData = await Promise.all(
+//         borders.map(async (borderCode) => {
+//           console.log(await getCountryByBorder(borderCode));
+//           // await getCountryByBorder(borderCode);
+
+//           // const response = await fetch(
+//           //   `https://restcountries.com/v3.1/alpha?codes=${borderCode}`
+//           // );
+//           // const data = await response.json();
+//           // return data[0].name.common;
+//         })
+//       );
+//       // console.log(borderData);
+//       setBorderCountries(borderData); // tablica z nazwami Państw//
+//     } catch (error) {
+//       console.error(
+//         'Wystąpił błąd podczas pobierania danych krajów granicznych:',
+//         error
+//       );
+//     }
+//   }
+// };

@@ -4,14 +4,11 @@
   --text-color: #242424;
   --placeholder-color: #808080;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --header-color: #333;
-    --background-color: #242424;
-    --text-color: #fafafa;
-    --placeholder-color: #ddd;
-  }
+:root.dark {
+  --header-color: #333;
+  --background-color: #242424;
+  --text-color: #fafafa;
+  --placeholder-color: #ddd;
 }
 
 * {

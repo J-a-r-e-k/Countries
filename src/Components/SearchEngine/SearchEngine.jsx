@@ -28,7 +28,6 @@ const SearchEngine = ({
 
   const buttonRegion = () =>
     continents.map((element) => {
-      console.log(element);
       return (
         <li>
           <button
