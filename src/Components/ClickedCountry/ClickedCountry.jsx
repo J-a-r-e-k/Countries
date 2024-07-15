@@ -44,7 +44,6 @@ const ClickedCountry = ({ countryName }) => {
     getCountriesData();
   }, [countryName]);
 
-  // czy da sie ustawić zmiane kraju tak by cofając przechodziło przez wcześniejsze?//
   const borderBtn = () =>
     borderCountries.map((element) => {
       return (
@@ -61,15 +60,15 @@ const ClickedCountry = ({ countryName }) => {
 
   if (!country) return <></>;
 
-  const currencie = Object.values(country.currencies)[0].name;
+  const currency = Object.values(country.currencies)[0].name;
   const language = Object.values(country.languages).map((nameLanguage) => {
     return <span key={nameLanguage}>{nameLanguage} </span>;
   });
 
   return (
-    <div className={Style.contry}>
+    <div className={Style.country}>
       <button
-        className={Style.btnContry}
+        className={Style.btnCountry}
         onClick={() => {
           navigate(-1);
         }}
@@ -114,7 +113,7 @@ const ClickedCountry = ({ countryName }) => {
             Top Level Domain: <span>{country.cca2}</span>
           </p>
           <p className={Style.description}>
-            Currencies: <span>{currencie}</span>
+            Currencies: <span>{currency}</span>
           </p>
           <p className={Style.description}>Languages: {language}</p>
         </div>

@@ -16,3 +16,16 @@ export const getCountryByName = async (countryName) => {
     console.error('Wystąpił błąd podczas pobierania danych:', error);
   }
 };
+
+// export const getCountryByBorder = async (borders) => {
+
+// };
+
+export const continents = [
+  { id: 'africa', label: 'Africa' },
+  { id: 'americas', label: 'America' },
+  { id: 'Asia', label: 'Azja' },
+  { id: 'europe', label: 'Europe' },
+  { id: 'Oceania', label: 'Oceania' },
+  { id: null, label: 'Filter by Region' },
+];

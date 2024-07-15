@@ -16,7 +16,7 @@ button {
 .magnifier {
   position: absolute;
 }
-.imputSearch {
+.inputSearch {
   width: 100%;
   height: 40px;
   padding: 0 45px;
@@ -29,7 +29,7 @@ button {
     width: 40%;
   }
 }
-.imputSearch::placeholder {
+.inputSearch::placeholder {
   color: var(--placeholder-color);
 }
 .btnListRegion {

@@ -1,6 +1,7 @@
 import Style from './SearchEngine.module.scss';
 import { ArrowRegionSVG } from '../../utils/Icon';
 import { useEffect } from 'react';
+import { continents } from '../../api';
 
 const SearchEngine = ({
   stanRegionBtn,
@@ -25,15 +26,27 @@ const SearchEngine = ({
     arraySearch(result);
   }, [searchValue, globalData]);
 
-  // const continents = [
-  // {id: "africa", label: "Africa"},
-  // //
-  // ]
+  const buttonRegion = () =>
+    continents.map((element) => {
+      console.log(element);
+      return (
+        <li>
+          <button
+            onClick={() => {
+              getCountriesData(element.id);
+              changeNameRegionBtn(element.label);
+            }}
+          >
+            {element.label}
+          </button>
+        </li>
+      );
+    });
 
   return (
     <section className={Style.searchEngine}>
       <input
-        className={Style.imputSearch}
+        className={Style.inputSearch}
         type="text"
         placeholder="Search for a country"
         value={searchValue}
@@ -53,69 +66,7 @@ const SearchEngine = ({
         <ArrowRegionSVG />
         {stanRegionBtn && (
           <div className={Style.regionList}>
-            <ul>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData('africa');
-                    changeNameRegionBtn('Africa');
-                  }}
-                >
-                  Africa
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData('americas');
-                    changeNameRegionBtn('America');
-                  }}
-                >
-                  America
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData('Asia');
-                    changeNameRegionBtn('Azja');
-                  }}
-                >
-                  Azja
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData('europe');
-                    changeNameRegionBtn('Europe');
-                  }}
-                >
-                  Europe
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData('Oceania');
-                    changeNameRegionBtn('Oceania');
-                  }}
-                >
-                  Oceania
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    getCountriesData();
-
-                    changeNameRegionBtn('Filter by Region');
-                  }}
-                >
-                  All Countries
-                </button>
-              </li>
-            </ul>
+            <ul>{buttonRegion()}</ul>
           </div>
         )}
       </button>

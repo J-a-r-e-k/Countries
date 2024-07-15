@@ -14,14 +14,14 @@ const Countries = ({
   updateSearchValue,
   searchValue,
 }) => {
-  const viueCuntry = searchValue === '' ? globalData : search;
+  const viewCountry = searchValue === '' ? globalData : search;
 
   const navigate = useNavigate();
 
-  const Countries = viueCuntry.map((country, index) => {
+  const Countries = viewCountry.map((country, index) => {
     return (
       <button
-        className={Style.contrie}
+        className={Style.country}
         key={index}
         onClick={function () {
           navigate('/' + country.name.common);
